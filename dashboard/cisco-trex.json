@@ -237,6 +237,7 @@
         "type": "influxdb",
         "uid": "${DS_INFLUXDB}"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -254,7 +255,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 6,
         "w": 3,
         "x": 6,
         "y": 1
@@ -267,7 +268,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -330,7 +331,7 @@
           ]
         }
       ],
-      "title": "Avg throughput (bits/s)",
+      "title": "Current TP",
       "type": "stat"
     },
     {
@@ -338,6 +339,7 @@
         "type": "influxdb",
         "uid": "${DS_INFLUXDB}"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -355,7 +357,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 6,
         "w": 3,
         "x": 9,
         "y": 1
@@ -368,7 +370,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -431,7 +433,7 @@
           ]
         }
       ],
-      "title": "Avg packets rate (PPS)",
+      "title": "Current PPS",
       "type": "stat"
     },
     {
@@ -456,7 +458,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 6,
         "w": 3,
         "x": 12,
         "y": 1
@@ -469,7 +471,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -532,7 +534,7 @@
           ]
         }
       ],
-      "title": "Avg concurrent connections",
+      "title": "Current CC",
       "type": "stat"
     },
     {
@@ -557,7 +559,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 6,
         "w": 3,
         "x": 15,
         "y": 1
@@ -570,7 +572,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -633,7 +635,7 @@
           ]
         }
       ],
-      "title": "Avg connections/s",
+      "title": "Current CPS",
       "type": "stat"
     },
     {
@@ -659,7 +661,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 6,
         "w": 3,
         "x": 18,
         "y": 1
@@ -1515,7 +1517,6 @@
       },
       "fieldConfig": {
         "defaults": {
-          "decimals": 2,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -3171,8 +3172,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3456,8 +3456,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -7165,6 +7164,6 @@
   "timezone": "",
   "title": "Cisco trex",
   "uid": "cisco-trex",
-  "version": 28,
+  "version": 35,
   "weekStart": "monday"
 }
