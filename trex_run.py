@@ -11,33 +11,94 @@ import socket
 import threading
 import signal
 
+from copy import deepcopy
 from datetime import datetime
 from itertools import cycle
 from trex.astf.api import *
 from influxdb import InfluxDBClient
 from distutils import util
+from flatten_json import flatten
 
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 SINGLE_ATTACK_PROFILE = os.path.join(curr_dir, 'trex_profiles', 'attack_single.py')
 MAIN_PROFILE_ID = 'main_profile'
 ATTACK_PROFILE_ID = 'attack_profile_{0}'
-STATS = {'m_traffic_duration': 'workload duration (sec)',
-         'udps_sndbyte': 'UDP TX bytes',
-         'udps_rcvbyte': 'UDP RX bytes',
-         'udps_sndpkt': 'UDP TX packets',
-         'udps_rcvpkt': 'UDP RX packets',
-         'udps_keepdrops': 'UDP session drops',
-         'udps_accepts': 'UDP connections accepted',
-         'udps_connects': 'UDP connections established',
-         'udps_closed': 'UDP conn. closed (including drops)',
-         'tcps_connects': 'TCP connections established',
-         'tcps_closed': 'TCP conn. closed (including drops)',
-         'tcps_sndpack': 'TCP TX data packets',
-         'tcps_sndbyte': 'TCP TX bytes',
-         'tcps_rcvpack': 'TCP RX data packets',
-         'tcps_rcvbyte': 'TCP RX bytes',
-         'tcps_drops': 'TCP session drops'
-         }
+MAIN_STATS = {'m_traffic_duration': 'workload duration (sec)',
+              'udps_sndbyte': 'UDP TX bytes',
+              'udps_rcvbyte': 'UDP RX bytes',
+              'udps_sndpkt': 'UDP TX packets',
+              'udps_rcvpkt': 'UDP RX packets',
+              'udps_keepdrops': 'UDP session drops',
+              'udps_accepts': 'UDP connections accepted',
+              'udps_connects': 'UDP connections established',
+              'udps_closed': 'UDP conn. closed (including drops)',
+              'tcps_connects': 'TCP connections established',
+              'tcps_closed': 'TCP conn. closed (including drops)',
+              'tcps_sndtotal': 'TCP TX packets',
+              'tcps_sndbyte': 'TCP TX bytes',
+              'tcps_rcvtotal': 'TCP RX packets',
+              'tcps_rcvbyte': 'TCP RX bytes',
+              'tcps_drops': 'TCP session drops',
+              'm_tx_ratio': 'TX bw vs retransmits bw',
+              'm_avg_size': 'Avg packet size bytes',
+}
+
+DEBUG_STATS = ['err_c_nf_throttled',
+               'err_c_tuple_err',
+               'err_cwf',
+               'err_dct',
+               'err_defer_no_template',
+               'err_flow_overflow',
+               'err_fragments_ipv4_drop',
+               'err_l3_cs',
+               'err_l4_cs',
+               'err_len_err',
+               'err_no_memory',
+               'err_no_syn',
+               'err_no_tcp_udp',
+               'err_no_template',
+               'err_redirect_rx',
+               'err_rx_throttled',
+               'err_s_nf_throttled',
+               'flows_other',
+               'ignored_ips',
+               'ignored_macs',
+               'rss_redirect_drops',
+               'rss_redirect_queue_full',
+               'rss_redirect_rx',
+               'rss_redirect_tx',
+               'tcps_badsyn',
+               'tcps_conndrops',
+               'tcps_delack',
+               'tcps_keepdrops',
+               'tcps_keeptimeo',
+               'tcps_nombuf',
+               'tcps_pawsdrop',
+               'tcps_persistdrop',
+               'tcps_persisttimeo',
+               'tcps_rcvafterclose',
+               'tcps_rcvbadoff',
+               'tcps_rcvbadsum',
+               'tcps_rcvpackafterwin',
+               'tcps_rcvdupack',
+               'tcps_rcvduppack',
+               'tcps_rcvoffloads',
+               'tcps_rcvoopack',
+               'tcps_rcvoopackdrop',
+               'tcps_rcvshort',
+               'tcps_rcvwinupd',
+               'tcps_rexmttimeo',
+               'tcps_rexmttimeo_syn',
+               'tcps_sndrexmitpack',
+               'tcps_sndurg',
+               'tcps_sndwinup',
+               'tcps_testdrops',
+               'tcps_timeoutdrop',
+               'udps_nombuf',
+               'udps_pkt_toobig',
+]
+# retry counts to start trex
+_RETRY = 5
 
 
 class Keyvalue(argparse.Action):
@@ -61,7 +122,8 @@ def grafana_url(host, dashboard_uid, dashboard, from_time, to_time, trex, test_i
     return url
 
 
-def influx_stat(host, test, profile, profile_path, stats, mult):
+def influx_stat(host, test, profile, profile_path, stats, mult, latency_pps):
+    points = []
     global_stats = stats['global']
     traffic_stats = stats['traffic']
     json_body = {
@@ -74,13 +136,36 @@ def influx_stat(host, test, profile, profile_path, stats, mult):
         "fields": {
         }
     }
+    # Metrics description https://github.com/cisco-system-traffic-generator/trex-core/blob/master/scripts/automation/trex_control_plane/doc/api/json_fields.rst?plain=1#L135
+    if latency_pps:
+        json_body_lat = deepcopy(json_body)
+        json_body_lat['measurement'] = 'trex_tests_latency'
+        latency_stats = stats['latency']
+        for port in latency_stats:
+            json_body_lat['tags']['port'] = port
+            port_stat_hist = latency_stats[port]['hist']['histogram']
+            del latency_stats[port]['hist']['histogram']
+            port_stat = flatten(latency_stats[port])
+            for metric in port_stat:
+                json_body_lat['fields']['latency_' + metric] = round(float(port_stat[metric]), 2)
+            points.append(deepcopy(json_body_lat))
+            json_body_lat['fields'] = {}
+            total_pckts = sum(element['val'] for element in port_stat_hist)
+            for hist_metric in port_stat_hist:
+                json_body_lat['tags']['latency_usec'] = hist_metric['key']
+                json_body_lat['fields']['pckt_prcnt'] = round(float((hist_metric['val'] / total_pckts) * 100), 2)
+                points.append(deepcopy(json_body_lat))
+                json_body_lat['fields'] = {}
     for k, v in global_stats.items():
         json_body['fields']['global_' + k] = round(float(v), 2)
     json_body['fields']['profile_name'] = profile
     json_body['fields']['profile_path'] = profile_path
     json_body['fields']['profile_mult'] = mult
     for direction in traffic_stats:
-        for metric in STATS:
+        for metric in MAIN_STATS:
+            json_body['fields']['profile_' + direction + '_' + metric] = round(float(traffic_stats[direction][metric]),
+                                                                               2)
+        for metric in DEBUG_STATS:
             json_body['fields']['profile_' + direction + '_' + metric] = round(float(traffic_stats[direction][metric]),
                                                                                2)
     tcp_total_tx = traffic_stats['client'].get('tcps_sndtotal', 0) + traffic_stats['server'].get('tcps_sndtotal', 0)
@@ -97,7 +182,7 @@ def influx_stat(host, test, profile, profile_path, stats, mult):
     json_body['fields']['profile_total_udp_tx_bytes'] = round(float(udp_total_tx_b), 2)
     json_body['fields']['profile_total_tcp_drops_bytes'] = round(float(tcp_drops_b), 2)
     json_body['fields']['profile_total_udp_drops_bytes'] = round(float(udp_drops_b), 2)
-    points = [json_body, ]
+    points.append(json_body)
     flux_client.write_points(points)
     return 0
 
@@ -118,10 +203,10 @@ def influxdb_send_annotation(host, test, description):
     flux_client.write_points(points)
 
 
-def cyclic_influx_stat(host, test, profile, profile_path, interval, mult):
+def cyclic_influx_stat(host, test, profile, profile_path, interval, mult, latency_pps):
     while c.is_traffic_active():
         stats = c.get_stats(skip_zero=False, pid_input=profile, is_sum=False)
-        influx_stat(host, test, profile, profile_path, stats, mult)
+        influx_stat(host, test, profile, profile_path, stats, mult, latency_pps)
         time.sleep(interval)
     return 0
 
@@ -141,9 +226,9 @@ def print_main_stat(stats):
     for direction in stats['traffic']:
         if stats['traffic'][direction]['m_traffic_duration']:
             print(' - {} stats:'.format(direction))
-            for metric in STATS:
+            for metric in MAIN_STATS:
                 if stats['traffic'][direction][metric]:
-                    print('\t{0}: {1}'.format(STATS[metric], round(stats['traffic'][direction][metric])))
+                    print('\t{0}: {1}'.format(MAIN_STATS[metric], round(stats['traffic'][direction][metric])))
             avg_tx_pps = round(
                 (stats['traffic'][direction]['udps_sndpkt'] + stats['traffic'][direction]['tcps_sndpack'])
                 / stats['traffic'][direction]['m_traffic_duration'])
@@ -155,7 +240,7 @@ def print_main_stat(stats):
             if not stats['traffic'][direction]['udps_keepdrops'] and not stats['traffic'][direction]['tcps_drops']:
                 print('\tNo session drops')
         else:
-            print('{}: 0'.format(STATS['m_traffic_duration']))
+            print('{}: 0'.format(MAIN_STATS['m_traffic_duration']))
     return 0
 
 
@@ -217,11 +302,12 @@ def attacks_stats_evaluation(attack_stats):
 def signal_handler(sig, frame):
     print('Abortion by user. Stop trex traffic.')
     c.reset()
+    c.clear_stats()
     sys.exit(0)
 
 
 def astf_test(mult, duration, profile_path, attacks_path,
-              drops, tunables, send_stats, influx_interval, test):
+              drops, tunables, send_stats, influx_interval, test, latency_pps):
     errors = 0
     print_date('Start test {}'.format(test))
     # load main ASTF profile if it exists
@@ -232,15 +318,21 @@ def astf_test(mult, duration, profile_path, attacks_path,
         except TRexError as e:
             print(e)
             sys.exit(1)
-        if c.get_profiles_state().get(MAIN_PROFILE_ID):
-            c.start(pid_input=MAIN_PROFILE_ID, mult=mult, duration=duration)
-        else:
-            print("Profile {} wasn't loaded. Exit.".format(MAIN_PROFILE_ID))
-            sys.exit(1)
+        try_num = 1
+        while not c.get_profiles_state().get(MAIN_PROFILE_ID):
+            if try_num > _RETRY:
+                print("Profile {} wasn't loaded. Exit.".format(MAIN_PROFILE_ID))
+                sys.exit(1)
+            print('Wait on profile load (%s/%s)...' % (try_num, _RETRY))
+            try_num += 1
+            time.sleep(0.2)
+
+        c.start(nc=True, pid_input=MAIN_PROFILE_ID, mult=mult, duration=duration, latency_pps=latency_pps)
         print_date("Start main profile %s with %s multiplier for %s seconds" % (profile_path, mult, duration))
         if send_stats:
             thread = threading.Thread(target=cyclic_influx_stat,
-                                      args=(trex_host, test, MAIN_PROFILE_ID, profile_path, influx_interval, mult))
+                                      args=(trex_host, test, MAIN_PROFILE_ID, profile_path, influx_interval, mult,
+                                            latency_pps))
             thread.start()
     # load attack profiles if it exists
     if attacks_path:
@@ -291,7 +383,8 @@ def astf_test(mult, duration, profile_path, attacks_path,
                     attack_stats['allowed_set'].add(relative_pcap_path)
                 if send_stats:
                     stats['global']['attack_allowed'] = bool(conn_allowed)
-                    influx_stat(trex_host, test, ATTACK_PROFILE_ID.format(attack_index), relative_pcap_path, stats, 1)
+                    influx_stat(trex_host, test, ATTACK_PROFILE_ID.format(attack_index), relative_pcap_path, stats,
+                                mult=1, latency_pps=0)
                 c.clear_profile(pid_input=ATTACK_PROFILE_ID.format(attack_index), block=False)
                 while c.get_profiles_state().get(ATTACK_PROFILE_ID.format(attack_index)):
                     time.sleep(0.001)
@@ -394,7 +487,7 @@ def parse_args():
     parser.add_argument('--influx_interval',
                         dest='influx_interval',
                         help='Influx send interval, sec',
-                        default=1,
+                        default=10,
                         type=int)
     parser.add_argument('--test_id',
                         dest='test_id',
@@ -416,6 +509,11 @@ def parse_args():
                         help='Dashboard name',
                         default='cisco-trex',
                         type=str)
+    parser.add_argument('--latency_pps',
+                        dest='latency_pps',
+                        help='ICMP packets rate',
+                        default=0,
+                        type=int)
     return parser.parse_args()
 
 
@@ -445,7 +543,8 @@ if args.send_stats:
     influxdb_send_annotation(trex_host, test=args.test_id, description="Start")
 result_errors = astf_test(mult=args.mult, duration=args.duration, profile_path=args.file,
                           attacks_path=args.attacks_path, drops=args.drp, tunables=args.tunables,
-                          send_stats=args.send_stats, test=args.test_id, influx_interval=args.influx_interval)
+                          send_stats=args.send_stats, test=args.test_id, influx_interval=args.influx_interval,
+                          latency_pps=args.latency_pps)
 
 if args.send_stats:
     influxdb_send_annotation(trex_host, test=args.test_id, description="Stop")
