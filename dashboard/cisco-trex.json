@@ -1517,6 +1517,7 @@
       },
       "fieldConfig": {
         "defaults": {
+          "decimals": 3,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2054,6 +2055,7 @@
       },
       "fieldConfig": {
         "defaults": {
+          "decimals": 3,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2854,7 +2856,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
+        "w": 8,
         "x": 0,
         "y": 12
       },
@@ -3030,8 +3032,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
-        "x": 12,
+        "w": 8,
+        "x": 8,
         "y": 12
       },
       "id": 9,
@@ -3111,6 +3113,182 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX Drops"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 12
+      },
+      "id": 55,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "errors",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "/^$measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "global_total_alloc_error"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        }
+      ],
+      "title": "Total allocation errors",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
@@ -3120,7 +3298,7 @@
       },
       "id": 2,
       "panels": [],
-      "title": "Total (L2)",
+      "title": "Total",
       "type": "row"
     },
     {
@@ -3172,7 +3350,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -3456,7 +3635,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -3702,7 +3882,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -3876,7 +4057,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -4009,10 +4191,1572 @@
         "x": 0,
         "y": 39
       },
+      "id": 65,
+      "panels": [],
+      "title": "Latency",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX Drops"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 40
+      },
+      "id": 67,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "alias": "total_sent_$tag_port",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_hist_cnt"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        },
+        {
+          "alias": "high_lat_$tag_port",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_hist_cnt"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [
+                  "1s"
+                ],
+                "type": "non_negative_derivative"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        }
+      ],
+      "title": "NIC ICMP packet rate",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "µs"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX Drops"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 40
+      },
+      "id": 66,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "alias": "max_port_$tag_port",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_hist_max_usec"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        },
+        {
+          "alias": "min_port_$tag_port",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_hist_min_usec"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        },
+        {
+          "alias": "avg_from_start_port_$tag_port",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_hist_s_avg"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        },
+        {
+          "alias": "max_from_start_port_$tag_port",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_hist_s_max"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        }
+      ],
+      "title": "Latency by NIC port",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX Drops"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 48
+      },
+      "id": 70,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "repeat": "nic_port",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "[[tag_latency_usec]]_usec",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "latency_usec"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"latency_stats_m_jitter\") FROM \"trex_tests_latency\" WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "pckt_prcnt"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            },
+            {
+              "condition": "AND",
+              "key": "port",
+              "operator": "=~",
+              "value": "/^$nic_port$/"
+            }
+          ]
+        }
+      ],
+      "title": "NIC port_$nic_port histogram latency",
+      "transformations": [],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX Drops"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 56
+      },
+      "id": 68,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "repeat": "nic_port",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(/latency_stats_(.*)/) FROM \"trex_tests_latency\" WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"port\" =~ /^$nic_port$/) AND $timeFilter GROUP BY time($__interval), \"port\" fill(none)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_stats_m_jitter"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            },
+            {
+              "condition": "AND",
+              "key": "port",
+              "operator": "=~",
+              "value": "/^$nic_port$/"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "port"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": true,
+          "measurement": "trex_tests_latency",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"latency_stats_m_jitter\") FROM \"trex_tests_latency\" WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "latency_stats_m_jitter"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            },
+            {
+              "condition": "AND",
+              "key": "port",
+              "operator": "=~",
+              "value": "/^$nic_port$/"
+            }
+          ]
+        }
+      ],
+      "title": "NIC port_$nic_port counters",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {}
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "mean_latency_stats_(.*)",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 64
+      },
       "id": 34,
       "panels": [],
-      "title": "Client <==> Server (L7)",
+      "title": "Client <==> Server. Gbps/PPS/CPS",
       "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX Drops"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 65
+      },
+      "id": 56,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "client side",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "/^$measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "profile_client_m_avg_size"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        },
+        {
+          "alias": "server side",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "/^$measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "profile_server_m_avg_size"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        }
+      ],
+      "title": "Avg packet size, bytes",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "Ratio betwean tx_bw_l7_r and tx_bw_l7_total_r 100% means no retransmition TCP",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RX Drops"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 65
+      },
+      "id": 57,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "alias": "client side",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "/^$measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "profile_client_m_tx_ratio"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        },
+        {
+          "alias": "server side",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "/^$measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "profile_server_m_tx_ratio"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "test_id",
+              "operator": "=~",
+              "value": "/^$test_id$/"
+            }
+          ]
+        }
+      ],
+      "title": "TX bw ratio",
+      "transparent": true,
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -4063,7 +5807,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -4110,7 +5855,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 40
+        "y": 73
       },
       "id": 35,
       "options": {
@@ -4473,7 +6218,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -4520,7 +6266,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 40
+        "y": 73
       },
       "id": 36,
       "options": {
@@ -4930,7 +6676,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 50
+        "y": 83
       },
       "id": 37,
       "options": {
@@ -4981,7 +6727,7 @@
             [
               {
                 "params": [
-                  "profile_client_tcps_sndpack"
+                  "profile_client_tcps_sndtotal"
                 ],
                 "type": "field"
               },
@@ -5047,7 +6793,7 @@
             [
               {
                 "params": [
-                  "profile_server_tcps_rcvpack"
+                  "profile_server_tcps_rcvtotal"
                 ],
                 "type": "field"
               },
@@ -5316,7 +7062,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 50
+        "y": 83
       },
       "id": 38,
       "options": {
@@ -5367,7 +7113,7 @@
             [
               {
                 "params": [
-                  "profile_server_tcps_sndpack"
+                  "profile_server_tcps_sndtotal"
                 ],
                 "type": "field"
               },
@@ -5433,7 +7179,7 @@
             [
               {
                 "params": [
-                  "profile_client_tcps_rcvpack"
+                  "profile_client_tcps_rcvtotal"
                 ],
                 "type": "field"
               },
@@ -5702,7 +7448,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 60
+        "y": 93
       },
       "id": 39,
       "options": {
@@ -6022,7 +7768,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 60
+        "y": 93
       },
       "id": 40,
       "options": {
@@ -6342,7 +8088,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 70
+        "y": 103
       },
       "id": 41,
       "options": {
@@ -6662,7 +8408,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 70
+        "y": 103
       },
       "id": 42,
       "options": {
@@ -6892,7 +8638,1660 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 80
+        "y": 113
+      },
+      "id": 63,
+      "panels": [],
+      "title": "Client <==> Server. Errors and TCP stack counters",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 114
+      },
+      "id": 58,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_cwf\") AS \"err_cwf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_dct\") AS \"err_dct\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_defer_no_template\") AS \"err_defer_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_flow_overflow\") AS \"err_flow_overflow\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_l3_cs\") AS \"err_l3_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_l4_cs\") AS \"err_l4_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_len_err\") AS \"err_len_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_no_memory\") AS \"err_no_memory\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_no_syn\") AS \"err_no_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_no_template\") AS \"err_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_redirect_rx\") AS \"err_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_rx_throttled\") AS \"err_rx_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_flows_other\") AS \"flows_other\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_ignored_ips\") AS \"ignored_ips\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_ignored_macs\") AS \"ignored_macs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Errors Client",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 114
+      },
+      "id": 59,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_cwf\") AS \"err_cwf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_dct\") AS \"err_dct\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_defer_no_template\") AS \"err_defer_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_flow_overflow\") AS \"err_flow_overflow\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_l3_cs\") AS \"err_l3_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_l4_cs\") AS \"err_l4_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_len_err\") AS \"err_len_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "J",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_no_memory\") AS \"err_no_memory\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "K",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_no_syn\") AS \"err_no_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "L",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "M",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_no_template\") AS \"err_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "N",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_redirect_rx\") AS \"err_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "O",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_rx_throttled\") AS \"err_rx_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "P",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "Q",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_flows_other\") AS \"flows_other\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "R",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_ignored_ips\") AS \"ignored_ips\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "S",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_ignored_macs\") AS \"ignored_macs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "T",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "U",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "V",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "W",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "X",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Errors Server",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 124
+      },
+      "id": 60,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_badsyn\") AS \"tcps_badsyn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_conndrops\") AS \"tcps_conndrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_delack\") AS \"tcps_delack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_nombuf\") AS \"tcps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_sndurg\") AS \"tcps_sndurg\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_testdrops\") AS \"tcps_testdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_udps_nombuf\") AS \"udps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_client_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "TCP stack client",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 124
+      },
+      "id": 61,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Mean",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_badsyn\") AS \"tcps_badsyn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_conndrops\") AS \"tcps_conndrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_delack\") AS \"tcps_delack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_nombuf\") AS \"tcps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_sndurg\") AS \"tcps_sndurg\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_testdrops\") AS \"tcps_testdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_udps_nombuf\") AS \"udps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        },
+        {
+          "alias": "$col",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "SELECT mean(\"profile_server_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "TCP stack server",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 134
       },
       "id": 44,
       "panels": [],
@@ -6998,7 +10397,7 @@
         "h": 15,
         "w": 24,
         "x": 0,
-        "y": 81
+        "y": 135
       },
       "id": 46,
       "options": {
@@ -7153,17 +10552,37 @@
         "skipUrlSync": false,
         "sort": 2,
         "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "influxdb",
+          "uid": "${DS_INFLUXDB}"
+        },
+        "definition": "SHOW TAG VALUES FROM \"trex_tests_latency\" WITH KEY = \"port\" WHERE \"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/",
+        "hide": 2,
+        "includeAll": true,
+        "label": "NIC port",
+        "multi": false,
+        "name": "nic_port",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM \"trex_tests_latency\" WITH KEY = \"port\" WHERE \"host\" =~ /^$host$/ AND \"test_id\" =~ /^$test_id$/",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 3,
+        "type": "query"
       }
     ]
   },
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "2023-06-23T17:59:56.072Z",
+    "to": "2023-06-23T18:39:01.435Z"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Cisco trex",
   "uid": "cisco-trex",
-  "version": 35,
+  "version": 120,
   "weekStart": "monday"
 }
