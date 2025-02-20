@@ -14,13 +14,6 @@
       "description": "",
       "type": "datasource",
       "pluginId": "__expr__"
-    },
-    {
-      "name": "VAR_MEASUREMENT",
-      "type": "constant",
-      "label": "measurement",
-      "value": "trex_tests",
-      "description": ""
     }
   ],
   "__elements": {},
@@ -112,680 +105,12 @@
   "liveNow": false,
   "panels": [
     {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 133,
-      "panels": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "dark-red",
-                    "value": 1
-                  }
-                ]
-              },
-              "unit": "short"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 3,
-            "w": 3,
-            "x": 0,
-            "y": 1
-          },
-          "id": 27,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "center",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "value"
-          },
-          "pluginVersion": "9.3.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_client_udps_keepdrops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_client_tcps_drops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "C",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_server_tcps_drops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "D",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_server_udps_keepdrops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "__expr__",
-                "uid": "${DS_EXPRESSION}"
-              },
-              "expression": "$A+$B+$C+$D",
-              "hide": false,
-              "refId": "E",
-              "type": "math"
-            }
-          ],
-          "title": "Total connection drops",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX}"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "decimals": 3,
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "dark-red",
-                    "value": 0.1
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 3,
-            "w": 3,
-            "x": 3,
-            "y": 1
-          },
-          "id": 48,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "center",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "value"
-          },
-          "pluginVersion": "9.3.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_client_udps_keepdrops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "F",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_server_udps_keepdrops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_client_tcps_drops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "C",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "profile_server_tcps_drops"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX}"
-              },
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "linear"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "hide": true,
-              "measurement": "/^$measurement$/",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "D",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "global_open_flows"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$hostname$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "test_id",
-                  "operator": "=~",
-                  "value": "/^$test_id$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "profile",
-                  "operator": "=",
-                  "value": "main_profile"
-                }
-              ]
-            },
-            {
-              "datasource": {
-                "type": "__expr__",
-                "uid": "${DS_EXPRESSION}"
-              },
-              "expression": "($A+$F+$B+$C) / $D *100",
-              "hide": false,
-              "refId": "E",
-              "type": "math"
-            }
-          ],
-          "title": "Connection drops",
-          "type": "stat"
-        }
-      ],
-      "title": "tmp",
-      "type": "row"
-    },
-    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 0
       },
       "id": 14,
       "panels": [],
@@ -820,7 +145,7 @@
         "h": 3,
         "w": 6,
         "x": 0,
-        "y": 2
+        "y": 1
       },
       "id": 51,
       "options": {
@@ -847,7 +172,7 @@
           },
           "groupBy": [],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -927,7 +252,7 @@
         "h": 6,
         "w": 3,
         "x": 6,
-        "y": 2
+        "y": 1
       },
       "id": 15,
       "options": {
@@ -966,7 +291,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1029,7 +354,7 @@
         "h": 6,
         "w": 3,
         "x": 9,
-        "y": 2
+        "y": 1
       },
       "id": 16,
       "options": {
@@ -1068,7 +393,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1130,7 +455,7 @@
         "h": 6,
         "w": 3,
         "x": 12,
-        "y": 2
+        "y": 1
       },
       "id": 17,
       "options": {
@@ -1169,7 +494,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1231,7 +556,7 @@
         "h": 6,
         "w": 3,
         "x": 15,
-        "y": 2
+        "y": 1
       },
       "id": 18,
       "options": {
@@ -1270,7 +595,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1333,7 +658,7 @@
         "h": 6,
         "w": 3,
         "x": 18,
-        "y": 2
+        "y": 1
       },
       "id": 19,
       "options": {
@@ -1372,7 +697,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1441,7 +766,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 2
+        "y": 1
       },
       "id": 28,
       "options": {
@@ -1480,7 +805,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -1539,7 +864,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -1618,7 +943,7 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 5
+        "y": 4
       },
       "id": 52,
       "options": {
@@ -1657,7 +982,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1726,7 +1051,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 5
+        "y": 4
       },
       "id": 53,
       "options": {
@@ -1765,7 +1090,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -1834,7 +1159,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 5
+        "y": 4
       },
       "id": 54,
       "options": {
@@ -1873,7 +1198,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -1932,7 +1257,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -1991,7 +1316,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 7
       },
       "id": 31,
       "panels": [],
@@ -2028,7 +1353,7 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 9
+        "y": 8
       },
       "id": 22,
       "options": {
@@ -2067,7 +1392,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2126,7 +1451,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -2209,7 +1534,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 9
+        "y": 8
       },
       "id": 26,
       "options": {
@@ -2248,7 +1573,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2307,7 +1632,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -2366,7 +1691,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -2425,7 +1750,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -2509,7 +1834,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 9
+        "y": 8
       },
       "id": 117,
       "options": {
@@ -2548,7 +1873,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -2607,7 +1932,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -2666,7 +1991,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -2725,7 +2050,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -2784,7 +2109,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "E",
@@ -2843,7 +2168,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "F",
@@ -2902,7 +2227,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "G",
@@ -2961,7 +2286,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "H",
@@ -3020,7 +2345,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "I",
@@ -3079,7 +2404,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "J",
@@ -3163,7 +2488,7 @@
         "h": 3,
         "w": 3,
         "x": 9,
-        "y": 9
+        "y": 8
       },
       "id": 87,
       "options": {
@@ -3202,7 +2527,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -3261,7 +2586,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -3320,7 +2645,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -3379,7 +2704,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -3438,7 +2763,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "E",
@@ -3497,7 +2822,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "F",
@@ -3556,7 +2881,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "G",
@@ -3615,7 +2940,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "H",
@@ -3674,7 +2999,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "I",
@@ -3733,7 +3058,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "J",
@@ -3792,7 +3117,7 @@
             }
           ],
           "hide": true,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "K",
@@ -3876,7 +3201,7 @@
         "h": 3,
         "w": 3,
         "x": 12,
-        "y": 9
+        "y": 8
       },
       "id": 23,
       "options": {
@@ -3915,7 +3240,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -3982,7 +3307,7 @@
         "h": 3,
         "w": 3,
         "x": 15,
-        "y": 9
+        "y": 8
       },
       "id": 25,
       "options": {
@@ -4021,7 +3346,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4088,7 +3413,7 @@
         "h": 3,
         "w": 3,
         "x": 18,
-        "y": 9
+        "y": 8
       },
       "id": 49,
       "options": {
@@ -4114,7 +3439,7 @@
           },
           "groupBy": [],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4180,7 +3505,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 9
+        "y": 8
       },
       "id": 47,
       "options": {
@@ -4206,7 +3531,7 @@
           },
           "groupBy": [],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4251,7 +3576,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 11
       },
       "id": 12,
       "panels": [],
@@ -4356,7 +3681,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 13
+        "y": 12
       },
       "id": 21,
       "options": {
@@ -4396,7 +3721,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4532,7 +3857,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 13
+        "y": 12
       },
       "id": 9,
       "options": {
@@ -4572,7 +3897,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4708,7 +4033,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 13
+        "y": 12
       },
       "id": 55,
       "options": {
@@ -4748,7 +4073,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4792,7 +4117,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 20
       },
       "id": 2,
       "panels": [],
@@ -4896,7 +4221,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 22
+        "y": 21
       },
       "id": 6,
       "options": {
@@ -4938,7 +4263,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -4992,7 +4317,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5046,7 +4371,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -5196,7 +4521,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 22
+        "y": 21
       },
       "id": 7,
       "options": {
@@ -5238,7 +4563,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5292,7 +4617,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5380,7 +4705,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5427,7 +4753,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 32
+        "y": 31
       },
       "id": 8,
       "options": {
@@ -5467,7 +4793,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5554,7 +4880,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5601,7 +4928,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 32
+        "y": 31
       },
       "id": 20,
       "options": {
@@ -5641,7 +4968,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5685,7 +5012,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 39
       },
       "id": 34,
       "panels": [],
@@ -5742,7 +5069,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5789,7 +5117,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 40
       },
       "id": 56,
       "options": {
@@ -5829,7 +5157,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -5883,7 +5211,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -5971,7 +5299,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6018,7 +5347,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 41
+        "y": 40
       },
       "id": 57,
       "options": {
@@ -6058,7 +5387,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6112,7 +5441,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -6199,7 +5528,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6246,7 +5576,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 49
+        "y": 48
       },
       "id": 35,
       "options": {
@@ -6288,7 +5618,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6360,7 +5690,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -6432,7 +5762,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -6504,7 +5834,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -6609,7 +5939,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6656,7 +5987,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 49
+        "y": 48
       },
       "id": 36,
       "options": {
@@ -6698,7 +6029,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -6770,7 +6101,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -6842,7 +6173,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -6914,7 +6245,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -7019,7 +6350,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -7066,7 +6398,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 59
+        "y": 58
       },
       "id": 37,
       "options": {
@@ -7108,7 +6440,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -7174,7 +6506,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -7240,7 +6572,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -7306,7 +6638,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -7405,7 +6737,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -7452,7 +6785,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 59
+        "y": 58
       },
       "id": 38,
       "options": {
@@ -7494,7 +6827,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -7560,7 +6893,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -7626,7 +6959,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -7692,7 +7025,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -7791,7 +7124,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -7838,7 +7172,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 69
+        "y": 68
       },
       "id": 39,
       "options": {
@@ -7880,7 +7214,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -7946,7 +7280,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -8012,7 +7346,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -8078,7 +7412,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -8144,7 +7478,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "E",
@@ -8210,7 +7544,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "F",
@@ -8276,7 +7610,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "G",
@@ -8342,7 +7676,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "H",
@@ -8441,7 +7775,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -8488,7 +7823,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 69
+        "y": 68
       },
       "id": 40,
       "options": {
@@ -8530,7 +7865,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -8596,7 +7931,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -8662,7 +7997,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -8728,7 +8063,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "D",
@@ -8794,7 +8129,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "E",
@@ -8860,7 +8195,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "F",
@@ -8926,7 +8261,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "G",
@@ -8992,7 +8327,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "H",
@@ -9091,7 +8426,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -9138,7 +8474,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 79
+        "y": 78
       },
       "id": 41,
       "options": {
@@ -9180,7 +8516,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -9246,7 +8582,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -9312,7 +8648,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -9411,7 +8747,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -9458,7 +8795,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 79
+        "y": 78
       },
       "id": 42,
       "options": {
@@ -9500,7 +8837,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -9566,7 +8903,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -9632,7 +8969,7 @@
             }
           ],
           "hide": false,
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "C",
@@ -9688,7 +9025,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 89
+        "y": 88
       },
       "id": 65,
       "panels": [],
@@ -9745,7 +9082,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -9792,7 +9130,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 90
+        "y": 89
       },
       "id": 67,
       "options": {
@@ -10000,7 +9338,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -10047,7 +9386,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 90
+        "y": 89
       },
       "id": 66,
       "options": {
@@ -10363,7 +9702,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -10410,7 +9750,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 98
+        "y": 97
       },
       "id": 70,
       "options": {
@@ -10557,7 +9897,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -10604,7 +9945,7 @@
         "h": 8,
         "w": 6,
         "x": 0,
-        "y": 130
+        "y": 129
       },
       "id": 68,
       "options": {
@@ -10786,7 +10127,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 162
+        "y": 161
       },
       "id": 63,
       "panels": [],
@@ -10843,7 +10184,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -10859,7 +10201,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 163
+        "y": 162
       },
       "id": 58,
       "options": {
@@ -10887,7 +10229,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -10899,7 +10241,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series"
@@ -10911,7 +10253,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_cwf\") AS \"err_cwf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_cwf\") AS \"err_cwf\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series"
@@ -10923,7 +10265,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_dct\") AS \"err_dct\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_dct\") AS \"err_dct\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series"
@@ -10935,7 +10277,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_defer_no_template\") AS \"err_defer_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_defer_no_template\") AS \"err_defer_no_template\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series"
@@ -10947,7 +10289,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_flow_overflow\") AS \"err_flow_overflow\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_flow_overflow\") AS \"err_flow_overflow\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "F",
           "resultFormat": "time_series"
@@ -10959,7 +10301,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "G",
           "resultFormat": "time_series"
@@ -10971,7 +10313,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_l3_cs\") AS \"err_l3_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_l3_cs\") AS \"err_l3_cs\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "H",
           "resultFormat": "time_series"
@@ -10983,7 +10325,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_l4_cs\") AS \"err_l4_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_l4_cs\") AS \"err_l4_cs\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "I",
           "resultFormat": "time_series"
@@ -10995,7 +10337,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_len_err\") AS \"err_len_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_len_err\") AS \"err_len_err\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "J",
           "resultFormat": "time_series"
@@ -11007,7 +10349,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_no_memory\") AS \"err_no_memory\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_no_memory\") AS \"err_no_memory\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "K",
           "resultFormat": "time_series"
@@ -11019,7 +10361,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_no_syn\") AS \"err_no_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_no_syn\") AS \"err_no_syn\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "L",
           "resultFormat": "time_series"
@@ -11031,7 +10373,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "M",
           "resultFormat": "time_series"
@@ -11043,7 +10385,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_no_template\") AS \"err_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_no_template\") AS \"err_no_template\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "N",
           "resultFormat": "time_series"
@@ -11055,7 +10397,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_redirect_rx\") AS \"err_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_redirect_rx\") AS \"err_redirect_rx\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "O",
           "resultFormat": "time_series"
@@ -11067,7 +10409,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_rx_throttled\") AS \"err_rx_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_rx_throttled\") AS \"err_rx_throttled\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "P",
           "resultFormat": "time_series"
@@ -11079,7 +10421,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "Q",
           "resultFormat": "time_series"
@@ -11091,7 +10433,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_flows_other\") AS \"flows_other\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_flows_other\") AS \"flows_other\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "R",
           "resultFormat": "time_series"
@@ -11103,7 +10445,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_ignored_ips\") AS \"ignored_ips\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_ignored_ips\") AS \"ignored_ips\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "S",
           "resultFormat": "time_series"
@@ -11115,7 +10457,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_ignored_macs\") AS \"ignored_macs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_ignored_macs\") AS \"ignored_macs\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "T",
           "resultFormat": "time_series"
@@ -11127,7 +10469,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "U",
           "resultFormat": "time_series"
@@ -11139,7 +10481,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "V",
           "resultFormat": "time_series"
@@ -11151,7 +10493,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "W",
           "resultFormat": "time_series"
@@ -11163,7 +10505,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "X",
           "resultFormat": "time_series"
@@ -11223,7 +10565,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -11239,7 +10582,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 163
+        "y": 162
       },
       "id": 59,
       "options": {
@@ -11267,7 +10610,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11279,7 +10622,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series"
@@ -11291,7 +10634,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_cwf\") AS \"err_cwf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_cwf\") AS \"err_cwf\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series"
@@ -11303,7 +10646,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_dct\") AS \"err_dct\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_dct\") AS \"err_dct\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series"
@@ -11315,7 +10658,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_defer_no_template\") AS \"err_defer_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_defer_no_template\") AS \"err_defer_no_template\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series"
@@ -11327,7 +10670,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_flow_overflow\") AS \"err_flow_overflow\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_flow_overflow\") AS \"err_flow_overflow\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "F",
           "resultFormat": "time_series"
@@ -11339,7 +10682,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "G",
           "resultFormat": "time_series"
@@ -11351,7 +10694,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_l3_cs\") AS \"err_l3_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_l3_cs\") AS \"err_l3_cs\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "H",
           "resultFormat": "time_series"
@@ -11363,7 +10706,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_l4_cs\") AS \"err_l4_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_l4_cs\") AS \"err_l4_cs\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "I",
           "resultFormat": "time_series"
@@ -11375,7 +10718,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_len_err\") AS \"err_len_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_len_err\") AS \"err_len_err\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "J",
           "resultFormat": "time_series"
@@ -11387,7 +10730,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_no_memory\") AS \"err_no_memory\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_no_memory\") AS \"err_no_memory\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "K",
           "resultFormat": "time_series"
@@ -11399,7 +10742,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_no_syn\") AS \"err_no_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_no_syn\") AS \"err_no_syn\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "L",
           "resultFormat": "time_series"
@@ -11411,7 +10754,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "M",
           "resultFormat": "time_series"
@@ -11423,7 +10766,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_no_template\") AS \"err_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_no_template\") AS \"err_no_template\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "N",
           "resultFormat": "time_series"
@@ -11435,7 +10778,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_redirect_rx\") AS \"err_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_redirect_rx\") AS \"err_redirect_rx\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "O",
           "resultFormat": "time_series"
@@ -11447,7 +10790,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_rx_throttled\") AS \"err_rx_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_rx_throttled\") AS \"err_rx_throttled\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "P",
           "resultFormat": "time_series"
@@ -11459,7 +10802,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "Q",
           "resultFormat": "time_series"
@@ -11471,7 +10814,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_flows_other\") AS \"flows_other\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_flows_other\") AS \"flows_other\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "R",
           "resultFormat": "time_series"
@@ -11483,7 +10826,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_ignored_ips\") AS \"ignored_ips\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_ignored_ips\") AS \"ignored_ips\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "S",
           "resultFormat": "time_series"
@@ -11495,7 +10838,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_ignored_macs\") AS \"ignored_macs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_ignored_macs\") AS \"ignored_macs\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "T",
           "resultFormat": "time_series"
@@ -11507,7 +10850,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "U",
           "resultFormat": "time_series"
@@ -11519,7 +10862,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "V",
           "resultFormat": "time_series"
@@ -11531,7 +10874,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "W",
           "resultFormat": "time_series"
@@ -11543,7 +10886,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "X",
           "resultFormat": "time_series"
@@ -11603,7 +10946,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -11619,7 +10963,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 173
+        "y": 172
       },
       "id": 60,
       "options": {
@@ -11647,7 +10991,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_badsyn\") AS \"tcps_badsyn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_badsyn\") AS \"tcps_badsyn\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11659,7 +11003,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_conndrops\") AS \"tcps_conndrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_conndrops\") AS \"tcps_conndrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11671,7 +11015,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_delack\") AS \"tcps_delack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_delack\") AS \"tcps_delack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11683,7 +11027,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11695,7 +11039,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11707,7 +11051,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_nombuf\") AS \"tcps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_nombuf\") AS \"tcps_nombuf\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11719,7 +11063,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11731,7 +11075,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11743,7 +11087,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11755,7 +11099,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11767,7 +11111,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11779,7 +11123,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11791,7 +11135,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11803,7 +11147,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11815,7 +11159,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11827,7 +11171,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11839,7 +11183,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11851,7 +11195,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11863,7 +11207,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11875,7 +11219,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11887,7 +11231,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11899,7 +11243,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11911,7 +11255,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11923,7 +11267,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_sndurg\") AS \"tcps_sndurg\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_sndurg\") AS \"tcps_sndurg\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11935,7 +11279,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11947,7 +11291,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_testdrops\") AS \"tcps_testdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_testdrops\") AS \"tcps_testdrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11959,7 +11303,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11971,7 +11315,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_udps_nombuf\") AS \"udps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_udps_nombuf\") AS \"udps_nombuf\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11983,7 +11327,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -11995,7 +11339,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_tcps_drops\") AS \"tcps_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_drops\") AS \"tcps_drops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series"
@@ -12007,7 +11351,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
-          "query": "SELECT mean(\"profile_client_tcps_connattempt\") AS \"tcps_connattempt\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_tcps_connattempt\") AS \"tcps_connattempt\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series"
@@ -12019,7 +11363,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
-          "query": "SELECT mean(\"profile_client_udps_connects\") AS \"udps_connects\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_udps_connects\") AS \"udps_connects\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series"
@@ -12031,7 +11375,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_client_udps_keepdrops\") AS \"udps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_client_udps_keepdrops\") AS \"udps_keepdrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series"
@@ -12091,7 +11435,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -12107,7 +11452,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 173
+        "y": 172
       },
       "id": 61,
       "options": {
@@ -12135,7 +11480,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_badsyn\") AS \"tcps_badsyn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_badsyn\") AS \"tcps_badsyn\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12147,7 +11492,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_conndrops\") AS \"tcps_conndrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_conndrops\") AS \"tcps_conndrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12159,7 +11504,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_delack\") AS \"tcps_delack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_delack\") AS \"tcps_delack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12171,7 +11516,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12183,7 +11528,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12195,7 +11540,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_nombuf\") AS \"tcps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_nombuf\") AS \"tcps_nombuf\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12207,7 +11552,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12219,7 +11564,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12231,7 +11576,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12243,7 +11588,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12255,7 +11600,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12267,7 +11612,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12279,7 +11624,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12291,7 +11636,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12303,7 +11648,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12315,7 +11660,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12327,7 +11672,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12339,7 +11684,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12351,7 +11696,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12363,7 +11708,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12375,7 +11720,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12387,7 +11732,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12399,7 +11744,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12411,7 +11756,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_sndurg\") AS \"tcps_sndurg\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_sndurg\") AS \"tcps_sndurg\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12423,7 +11768,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12435,7 +11780,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_testdrops\") AS \"tcps_testdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_testdrops\") AS \"tcps_testdrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12447,7 +11792,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12459,7 +11804,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_udps_nombuf\") AS \"udps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_udps_nombuf\") AS \"udps_nombuf\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12471,7 +11816,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -12483,7 +11828,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_tcps_drops\") AS \"tcps_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_drops\") AS \"tcps_drops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series"
@@ -12495,7 +11840,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
-          "query": "SELECT mean(\"profile_server_tcps_closed\") AS \"tcps_closed\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_tcps_closed\") AS \"tcps_closed\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series"
@@ -12507,7 +11852,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
-          "query": "SELECT mean(\"profile_server_udps_closed\") AS \"udps_closed\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_udps_closed\") AS \"udps_closed\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series"
@@ -12519,7 +11864,7 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
-          "query": "SELECT mean(\"profile_server_udps_keepdrops\") AS \"udps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "query": "SELECT mean(\"profile_server_udps_keepdrops\") AS \"udps_keepdrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": true,
           "refId": "E",
           "resultFormat": "time_series"
@@ -12535,7 +11880,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 183
+        "y": 182
       },
       "id": 44,
       "panels": [],
@@ -12580,7 +11925,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -12641,7 +11987,7 @@
         "h": 15,
         "w": 24,
         "x": 0,
-        "y": 184
+        "y": 183
       },
       "id": 46,
       "options": {
@@ -12664,10 +12010,10 @@
             "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [],
-          "measurement": "/^$measurement$/",
+          "measurement": "trex_tests",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"profile_name\", \"profile_path\", \"profile_client_udps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" != 'main_profile') AND $timeFilter",
+          "query": "SELECT \"profile_name\", \"profile_path\", \"profile_client_udps_keepdrops\" FROM trex_tests WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" != 'main_profile') AND $timeFilter",
           "rawQuery": false,
           "refId": "A",
           "resultFormat": "table",
@@ -12738,39 +12084,19 @@
   "templating": {
     "list": [
       {
-        "hide": 2,
-        "label": "",
-        "name": "measurement",
-        "query": "${VAR_MEASUREMENT}",
-        "skipUrlSync": false,
-        "type": "constant",
-        "current": {
-          "value": "${VAR_MEASUREMENT}",
-          "text": "${VAR_MEASUREMENT}",
-          "selected": false
-        },
-        "options": [
-          {
-            "value": "${VAR_MEASUREMENT}",
-            "text": "${VAR_MEASUREMENT}",
-            "selected": false
-          }
-        ]
-      },
-      {
         "current": {},
         "datasource": {
           "type": "influxdb",
           "uid": "${DS_INFLUXDB_TREX}"
         },
-        "definition": "SHOW TAG VALUES FROM $measurement WITH KEY = \"host\"",
+        "definition": "SHOW TAG VALUES FROM trex_tests WITH KEY = \"host\"",
         "hide": 0,
         "includeAll": true,
         "label": "Trex hostname",
         "multi": true,
         "name": "hostname",
         "options": [],
-        "query": "SHOW TAG VALUES FROM $measurement WITH KEY = \"host\"",
+        "query": "SHOW TAG VALUES FROM trex_tests WITH KEY = \"host\"",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
@@ -12783,14 +12109,14 @@
           "type": "influxdb",
           "uid": "${DS_INFLUXDB_TREX}"
         },
-        "definition": "SHOW TAG VALUES FROM $measurement WITH KEY = \"test_id\" WHERE \"host\" =~ /^$hostname$/",
+        "definition": "SHOW TAG VALUES FROM trex_tests WITH KEY = \"test_id\" WHERE \"host\" =~ /^$hostname$/",
         "hide": 0,
         "includeAll": true,
         "label": "test",
         "multi": true,
         "name": "test_id",
         "options": [],
-        "query": "SHOW TAG VALUES FROM $measurement WITH KEY = \"test_id\" WHERE \"host\" =~ /^$hostname$/",
+        "query": "SHOW TAG VALUES FROM trex_tests WITH KEY = \"test_id\" WHERE \"host\" =~ /^$hostname$/",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
@@ -12827,6 +12153,6 @@
   "timezone": "",
   "title": "Cisco trex",
   "uid": "cisco-trex",
-  "version": 181,
+  "version": 190,
   "weekStart": "monday"
 }
