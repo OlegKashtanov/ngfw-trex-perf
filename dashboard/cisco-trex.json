@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUXDB_TREX 2",
-      "label": "InfluxDB Trex 2",
+      "name": "DS_INFLUXDB_TREX",
+      "label": "InfluxDB Trex",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
@@ -84,7 +84,7 @@
       {
         "datasource": {
           "type": "influxdb",
-          "uid": "${DS_INFLUXDB_TREX 2}"
+          "uid": "${DS_INFLUXDB_TREX}"
         },
         "enable": true,
         "iconColor": "red",
@@ -124,7 +124,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "fieldConfig": {
             "defaults": {
@@ -171,7 +171,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -230,7 +230,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -289,7 +289,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -348,7 +348,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -421,7 +421,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "fieldConfig": {
             "defaults": {
@@ -469,7 +469,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -528,7 +528,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -587,7 +587,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -646,7 +646,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -705,7 +705,7 @@
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "${DS_INFLUXDB_TREX 2}"
+                "uid": "${DS_INFLUXDB_TREX}"
               },
               "groupBy": [
                 {
@@ -795,7 +795,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -843,7 +843,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [],
           "hide": false,
@@ -904,7 +904,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -949,7 +949,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1006,7 +1006,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -1051,7 +1051,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1108,7 +1108,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1152,7 +1152,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1209,7 +1209,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1253,7 +1253,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1310,7 +1310,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -1355,7 +1355,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1418,7 +1418,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "Total sent packets",
       "fieldConfig": {
@@ -1463,7 +1463,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1522,7 +1522,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1595,7 +1595,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -1640,7 +1640,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1703,7 +1703,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -1748,7 +1748,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1811,7 +1811,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "Total sent bytes",
       "fieldConfig": {
@@ -1856,7 +1856,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -1915,7 +1915,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2001,7 +2001,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "Relevant only for the whole test period",
       "fieldConfig": {
@@ -2050,7 +2050,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2109,7 +2109,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2182,7 +2182,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2231,7 +2231,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2290,7 +2290,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2349,7 +2349,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2408,7 +2408,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2481,7 +2481,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -2531,7 +2531,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2590,7 +2590,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2649,7 +2649,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2708,7 +2708,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2767,7 +2767,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2826,7 +2826,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2885,7 +2885,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -2944,7 +2944,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3003,7 +3003,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3062,7 +3062,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3135,7 +3135,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -3185,7 +3185,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3244,7 +3244,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3303,7 +3303,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3362,7 +3362,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3421,7 +3421,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3480,7 +3480,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3539,7 +3539,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3598,7 +3598,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3657,7 +3657,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3716,7 +3716,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3775,7 +3775,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3848,7 +3848,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -3898,7 +3898,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -3955,7 +3955,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -4004,7 +4004,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -4061,7 +4061,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -4110,7 +4110,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [],
           "hide": false,
@@ -4157,7 +4157,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -4202,7 +4202,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [],
           "hide": false,
@@ -4261,7 +4261,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -4379,7 +4379,7 @@
           "alias": "CPU",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -4437,7 +4437,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -4555,7 +4555,7 @@
           "alias": "packets",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -4613,7 +4613,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -4731,7 +4731,7 @@
           "alias": "errors",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -4802,7 +4802,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -4921,7 +4921,7 @@
           "alias": "TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -4975,7 +4975,7 @@
           "alias": "RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5029,7 +5029,7 @@
           "alias": "RX Drops",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5087,7 +5087,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -5221,7 +5221,7 @@
           "alias": "TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5275,7 +5275,7 @@
           "alias": "RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5334,7 +5334,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -5450,7 +5450,7 @@
           "alias": "connections",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5508,7 +5508,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -5624,7 +5624,7 @@
           "alias": "connections",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5695,7 +5695,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -5812,7 +5812,7 @@
           "alias": "client side",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5866,7 +5866,7 @@
           "alias": "server side",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -5924,7 +5924,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "Ratio betwean tx_bw_l7_r and tx_bw_l7_total_r 100% means no retransmition TCP",
       "fieldConfig": {
@@ -6041,7 +6041,7 @@
           "alias": "client side",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6095,7 +6095,7 @@
           "alias": "server side",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6153,7 +6153,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -6271,7 +6271,7 @@
           "alias": "TCP: Client TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6343,7 +6343,7 @@
           "alias": "TCP: Server RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6415,7 +6415,7 @@
           "alias": "UDP: Client TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6487,7 +6487,7 @@
           "alias": "UDP: Server RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6563,7 +6563,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -6681,7 +6681,7 @@
           "alias": "TCP: Server TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6753,7 +6753,7 @@
           "alias": "TCP: Client RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6825,7 +6825,7 @@
           "alias": "UDP: Server TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6897,7 +6897,7 @@
           "alias": "UDP: Client RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -6973,7 +6973,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7091,7 +7091,7 @@
           "alias": "TCP: Client TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7157,7 +7157,7 @@
           "alias": "TCP: Server RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7223,7 +7223,7 @@
           "alias": "UDP: Client TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7289,7 +7289,7 @@
           "alias": "UDP: Server RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7359,7 +7359,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7477,7 +7477,7 @@
           "alias": "TCP: Server TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7543,7 +7543,7 @@
           "alias": "TCP: Client RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7609,7 +7609,7 @@
           "alias": "UDP: Server TX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7675,7 +7675,7 @@
           "alias": "UDP: Client RX",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7745,7 +7745,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -7863,7 +7863,7 @@
           "alias": "established/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7929,7 +7929,7 @@
           "alias": "closed/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -7995,7 +7995,7 @@
           "alias": "drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8061,7 +8061,7 @@
           "alias": "embryounic drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8127,7 +8127,7 @@
           "alias": "timeout drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8193,7 +8193,7 @@
           "alias": "keepalive drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8259,7 +8259,7 @@
           "alias": "test drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8325,7 +8325,7 @@
           "alias": "persist state drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8395,7 +8395,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -8513,7 +8513,7 @@
           "alias": "established/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8579,7 +8579,7 @@
           "alias": "closed/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8645,7 +8645,7 @@
           "alias": "drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8711,7 +8711,7 @@
           "alias": "embryonic drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8777,7 +8777,7 @@
           "alias": "timeout drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8843,7 +8843,7 @@
           "alias": "keepalive drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8909,7 +8909,7 @@
           "alias": "test drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -8975,7 +8975,7 @@
           "alias": "persist drops/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9045,7 +9045,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -9163,7 +9163,7 @@
           "alias": "established/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9229,7 +9229,7 @@
           "alias": "closed/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9295,7 +9295,7 @@
           "alias": "dropped/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9365,7 +9365,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -9483,7 +9483,7 @@
           "alias": "accepted/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9549,7 +9549,7 @@
           "alias": "closed/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9615,7 +9615,7 @@
           "alias": "dropped/s",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9698,7 +9698,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -9817,7 +9817,7 @@
           "alias": "total_sent_$tag_port",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9883,7 +9883,7 @@
           "alias": "high_lat_$tag_port",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -9953,7 +9953,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -10072,7 +10072,7 @@
           "alias": "max_port_$tag_port",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -10132,7 +10132,7 @@
           "alias": "min_port_$tag_port",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -10192,7 +10192,7 @@
           "alias": "avg_from_start_port_$tag_port",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -10252,7 +10252,7 @@
           "alias": "max_from_start_port_$tag_port",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -10316,7 +10316,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -10437,7 +10437,7 @@
           "alias": "[[tag_latency_usec]]_usec",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -10510,7 +10510,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -10631,7 +10631,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -10698,7 +10698,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [
             {
@@ -10796,7 +10796,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -10884,7 +10884,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10896,7 +10896,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10908,7 +10908,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_cwf\") AS \"err_cwf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10920,7 +10920,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_dct\") AS \"err_dct\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10932,7 +10932,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_defer_no_template\") AS \"err_defer_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10944,7 +10944,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_flow_overflow\") AS \"err_flow_overflow\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10956,7 +10956,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10968,7 +10968,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_l3_cs\") AS \"err_l3_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10980,7 +10980,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_l4_cs\") AS \"err_l4_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -10992,7 +10992,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_len_err\") AS \"err_len_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11004,7 +11004,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_no_memory\") AS \"err_no_memory\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11016,7 +11016,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_no_syn\") AS \"err_no_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11028,7 +11028,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11040,7 +11040,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_no_template\") AS \"err_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11052,7 +11052,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_redirect_rx\") AS \"err_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11064,7 +11064,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_rx_throttled\") AS \"err_rx_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11076,7 +11076,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11088,7 +11088,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_flows_other\") AS \"flows_other\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11100,7 +11100,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_ignored_ips\") AS \"ignored_ips\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11112,7 +11112,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_ignored_macs\") AS \"ignored_macs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11124,7 +11124,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11136,7 +11136,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11148,7 +11148,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11160,7 +11160,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11176,7 +11176,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -11264,7 +11264,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_c_nf_throttled\") AS \"err_c_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11276,7 +11276,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_c_tuple_err\") AS \"err_c_tuple_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11288,7 +11288,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_cwf\") AS \"err_cwf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11300,7 +11300,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_dct\") AS \"err_dct\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11312,7 +11312,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_defer_no_template\") AS \"err_defer_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11324,7 +11324,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_flow_overflow\") AS \"err_flow_overflow\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11336,7 +11336,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_fragments_ipv4_drop\") AS \"err_fragments_ipv4_drop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11348,7 +11348,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_l3_cs\") AS \"err_l3_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11360,7 +11360,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_l4_cs\") AS \"err_l4_cs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11372,7 +11372,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_len_err\") AS \"err_len_err\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11384,7 +11384,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_no_memory\") AS \"err_no_memory\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11396,7 +11396,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_no_syn\") AS \"err_no_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11408,7 +11408,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_no_tcp_udp\") AS \"err_no_tcp_udp\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11420,7 +11420,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_no_template\") AS \"err_no_template\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11432,7 +11432,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_redirect_rx\") AS \"err_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11444,7 +11444,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_rx_throttled\") AS \"err_rx_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11456,7 +11456,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_err_s_nf_throttled\") AS \"err_s_nf_throttled\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11468,7 +11468,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_flows_other\") AS \"flows_other\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11480,7 +11480,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_ignored_ips\") AS \"ignored_ips\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11492,7 +11492,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_ignored_macs\") AS \"ignored_macs\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11504,7 +11504,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_rss_redirect_drops\") AS \"rss_redirect_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11516,7 +11516,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_rss_redirect_queue_full\") AS \"rss_redirect_queue_full\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11528,7 +11528,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_rss_redirect_rx\") AS \"rss_redirect_rx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11540,7 +11540,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_rss_redirect_tx\") AS \"rss_redirect_tx\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11556,7 +11556,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -11644,7 +11644,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_badsyn\") AS \"tcps_badsyn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11656,7 +11656,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_conndrops\") AS \"tcps_conndrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11668,7 +11668,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_delack\") AS \"tcps_delack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11680,7 +11680,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11692,7 +11692,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11704,7 +11704,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_nombuf\") AS \"tcps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11716,7 +11716,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11728,7 +11728,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11740,7 +11740,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11752,7 +11752,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11764,7 +11764,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11776,7 +11776,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11788,7 +11788,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11800,7 +11800,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11812,7 +11812,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11824,7 +11824,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11836,7 +11836,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11848,7 +11848,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11860,7 +11860,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11872,7 +11872,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11884,7 +11884,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11896,7 +11896,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11908,7 +11908,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11920,7 +11920,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_sndurg\") AS \"tcps_sndurg\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11932,7 +11932,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11944,7 +11944,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_testdrops\") AS \"tcps_testdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11956,7 +11956,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11968,7 +11968,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_udps_nombuf\") AS \"udps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11980,7 +11980,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -11992,7 +11992,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_tcps_drops\") AS \"tcps_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12004,7 +12004,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
           "query": "SELECT mean(\"profile_client_tcps_connattempt\") AS \"tcps_connattempt\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12016,7 +12016,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
           "query": "SELECT mean(\"profile_client_udps_connects\") AS \"udps_connects\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12028,7 +12028,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_client_udps_keepdrops\") AS \"udps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12044,7 +12044,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "description": "",
       "fieldConfig": {
@@ -12132,7 +12132,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_badsyn\") AS \"tcps_badsyn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12144,7 +12144,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_conndrops\") AS \"tcps_conndrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12156,7 +12156,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_delack\") AS \"tcps_delack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12168,7 +12168,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_keepdrops\") AS \"tcps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12180,7 +12180,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_keeptimeo\") AS \"tcps_keeptimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12192,7 +12192,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_nombuf\") AS \"tcps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12204,7 +12204,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_pawsdrop\") AS \"tcps_pawsdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12216,7 +12216,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_persistdrop\") AS \"tcps_persistdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12228,7 +12228,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_persisttimeo\") AS \"tcps_persisttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12240,7 +12240,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvdupack\") AS \"tcps_rcvdupack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12252,7 +12252,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvafterclose\") AS \"tcps_rcvafterclose\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12264,7 +12264,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvbadoff\") AS \"tcps_rcvbadoff\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12276,7 +12276,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvbadsum\") AS \"tcps_rcvbadsum\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12288,7 +12288,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvpackafterwin\") AS \"tcps_rcvpackafterwin\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12300,7 +12300,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvduppack\") AS \"tcps_rcvduppack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12312,7 +12312,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvoffloads\") AS \"tcps_rcvoffloads\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12324,7 +12324,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvoopack\") AS \"tcps_rcvoopack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12336,7 +12336,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvoopackdrop\") AS \"tcps_rcvoopackdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12348,7 +12348,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvshort\") AS \"tcps_rcvshort\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12360,7 +12360,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rcvwinupd\") AS \"tcps_rcvwinupd\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12372,7 +12372,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rexmttimeo\") AS \"tcps_rexmttimeo\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12384,7 +12384,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_rexmttimeo_syn\") AS \"tcps_rexmttimeo_syn\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12396,7 +12396,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_sndrexmitpack\") AS \"tcps_sndrexmitpack\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12408,7 +12408,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_sndurg\") AS \"tcps_sndurg\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12420,7 +12420,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_sndwinup\") AS \"tcps_sndwinup\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12432,7 +12432,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_testdrops\") AS \"tcps_testdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12444,7 +12444,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_timeoutdrop\") AS \"tcps_timeoutdrop\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12456,7 +12456,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_udps_nombuf\") AS \"udps_nombuf\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12468,7 +12468,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_udps_pkt_toobig\") AS \"udps_pkt_toobig\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12480,7 +12480,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_tcps_drops\") AS \"tcps_drops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12492,7 +12492,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
           "query": "SELECT mean(\"profile_server_tcps_closed\") AS \"tcps_closed\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12504,7 +12504,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": true,
           "query": "SELECT mean(\"profile_server_udps_closed\") AS \"udps_closed\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12516,7 +12516,7 @@
           "alias": "$col",
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "hide": false,
           "query": "SELECT mean(\"profile_server_udps_keepdrops\") AS \"udps_keepdrops\" FROM /^$measurement$/ WHERE (\"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/ AND \"profile\" = 'main_profile') AND $timeFilter GROUP BY time($__interval) fill(none)",
@@ -12545,7 +12545,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB_TREX 2}"
+        "uid": "${DS_INFLUXDB_TREX}"
       },
       "fieldConfig": {
         "defaults": {
@@ -12661,7 +12661,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB_TREX 2}"
+            "uid": "${DS_INFLUXDB_TREX}"
           },
           "groupBy": [],
           "measurement": "/^$measurement$/",
@@ -12761,7 +12761,7 @@
         "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "${DS_INFLUXDB_TREX 2}"
+          "uid": "${DS_INFLUXDB_TREX}"
         },
         "definition": "SHOW TAG VALUES FROM $measurement WITH KEY = \"host\"",
         "hide": 0,
@@ -12781,7 +12781,7 @@
         "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "${DS_INFLUXDB_TREX 2}"
+          "uid": "${DS_INFLUXDB_TREX}"
         },
         "definition": "SHOW TAG VALUES FROM $measurement WITH KEY = \"test_id\" WHERE \"host\" =~ /^$hostname$/",
         "hide": 0,
@@ -12801,7 +12801,7 @@
         "current": {},
         "datasource": {
           "type": "influxdb",
-          "uid": "${DS_INFLUXDB_TREX 2}"
+          "uid": "${DS_INFLUXDB_TREX}"
         },
         "definition": "SHOW TAG VALUES FROM \"trex_tests_latency\" WITH KEY = \"port\" WHERE \"host\" =~ /^$hostname$/ AND \"test_id\" =~ /^$test_id$/",
         "hide": 2,
