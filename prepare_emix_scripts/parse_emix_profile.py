@@ -43,7 +43,7 @@ def print_stats_new(self):
     tot_pps = 0
     x = PrettyTable()
     x.field_names = ["Templates", "L7 bytes", "L2 bytes", "Packets", "Avg pkt size, B",
-                     "Duration, sec", "CPS", "TP (L2), bit/s"]
+                     "Duration, sec", "CPS", "PPS", "TP (L2), bit/s"]
     x.align["Templates"] = "l"
     all_temp_bps = []
     all_temp_cps = []
@@ -67,7 +67,7 @@ def print_stats_new(self):
         temp_avg_pkt_size = temp_bytes_l2 / temp_packets
         x.add_row([temp_pcap_f, humanize.metric(temp_bytes_l7, 'B'), humanize.metric(temp_bytes_l2, 'B'),
                    temp_packets, humanize.metric(temp_avg_pkt_size, 'B'), humanize.metric(temp_duration, 's'),
-                   temp_cps, humanize.metric(temp_bps, 'bit/s')])
+                   temp_cps, humanize.metric(temp_pps), humanize.metric(temp_bps, 'bit/s')])
         all_temp_bps.append(temp_bps)
         all_temp_pps.append(temp_pps)
         all_temp_cps.append(temp_cps)
@@ -86,7 +86,7 @@ def print_stats_new(self):
     x.add_column("% by conn", all_temp_tot_cps_percent)
     x.add_row(['Total:', humanize.metric(tot_bytes_l7, 'B'), humanize.metric(tot_bytes_l2, 'B'),
                tot_packets, humanize.metric(tot_bytes_l2 / tot_packets, 'B'),
-               humanize.metric(max(all_temp_duration), 's'), round(tot_cps, 1),
+               humanize.metric(max(all_temp_duration), 's'), round(tot_cps, 1), humanize.metric(tot_pps),
                humanize.metric(tot_bps, 'bit/s'), '100 %', '100 %', '100 %'])
     print(x)
 
