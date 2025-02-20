@@ -1,7 +1,30 @@
 Repo with Cisco T-rex traffic profiles.
 
-## How to use 
+# Table of content
+1. [Install Cisco Trex generator](#install_generator)
+2. [How to use trex_run.py](#trex_run)
 
+## Install Cisco Trex generator <a name="install_generator"></a>
+
+* Configure the server:   
+For better performance setup the following options in BIOS:
+  - Disable Hyperthreading
+  - Enable 'Maximum perfomance' or 'Low latency' profile
+  - Enable Intel VT-d
+  - Enable SR-IOV (if needed)
+
+* Configure Linux (Debian in example):   
+   * Increase the number of available 2MB Huge Pages:
+     ```
+     echo "vm.nr_hugepages = 65535" > /etc/sysctl.conf && sysctl -p
+     cd /usr/lib/x86_64-linux-gnu/ && sudo ln -s -f libc.a liblibc.a
+     ```
+   * Add the following line to the /etc/default/grub file:
+     ```
+     GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"
+     sudo  update-grub
+     reboot
+     ```
 * Download and untar T-rex to **/opt/trex** directory:   
 ```
 wget --no-check-certificate --no-cache https://trex-tgn.cisco.com/trex/release/v3.02.tar.gz
@@ -31,64 +54,176 @@ Example:
         - socket: 0
           threads: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 ```
+Custom trex config (for L2 mode):
+```
+- version: 2
+  interfaces: ['86:00.0', '86:00.1']
+  prefix: trex3
+  zmq_pub_port: 4700
+  zmq_rpc_port: 4701
+  c: 24
+  limit_memory: 32768
+  new_memory: true
+  port_info:
+      - dest_mac: 6c:fe:54:50:8e:b9 # MAC OF LOOPBACK TO IT'S DUAL INTERFACE
+        src_mac:  6c:fe:54:50:8e:b8
+        #vlan: 1402
+      - dest_mac: 6c:fe:54:50:8e:b8 # MAC OF LOOPBACK TO IT'S DUAL INTERFACE
+        src_mac:  6c:fe:54:50:8e:b9
+        #vlan: 1302
 
-**I. Run test using Trex as a service and trex wrapper script**   
+  platform:
+      master_thread_id: 26
+      latency_thread_id: 51
+      dual_if:
+        - socket: 1
+          threads: [27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+          #threads: [41,42,43,44,45,46,47,48,49,50,51]
+  memory:
+      dp_flows: 40000000
+      mbuf_9k: 560000
+```
+* For enabling L3 with SR-IOV mode execute the following:
+```
+echo 4 > /sys/bus/pci/devices/0000:86:00.0/sriov_numvfs
+ip link set dev ens5f0np0 vf 0 state enable
+ip link set dev ens5f0np0 vf 1 state enable
+ip link set dev ens5f0np0 vf 2 state enable
+ip link set dev ens5f0np0 vf 3 state enable
+ip link set dev ens5f0np0 vf 0 trust on
+ip link set dev ens5f0np0 vf 1 trust on
+ip link set dev ens5f0np0 vf 2 trust on
+ip link set dev ens5f0np0 vf 3 trust on
 
-The benefit of that you don't need to start Trex server each time when you need to generate workload. Also you'll have more flexibility by assertions, test result analysis, monitoring and attacks sending.   
+echo 4 > /sys/bus/pci/devices/0000:86:00.1/sriov_numvfs
+ip link set dev ens5f1np1 vf 0 state enable
+ip link set dev ens5f1np1 vf 1 state enable
+ip link set dev ens5f1np1 vf 2 state enable
+ip link set dev ens5f1np1 vf 3 state enable
+ip link set dev ens5f1np1 vf 0 trust on
+ip link set dev ens5f1np1 vf 1 trust on
+ip link set dev ens5f1np1 vf 2 trust on
+ip link set dev ens5f1np1 vf 3 trust on
+```
+where `0000:86:00.0` - PCI for network card port.  
+Config example for L3:
+```
+- version: 2
+  interfaces: ['86:00.2', '86:00.3', '86:00.4', '86:00.5', '86:01.2', '86:01.3', '86:01.4', '86:01.5']
+  prefix: trex3
+  zmq_pub_port: 4700
+  zmq_rpc_port: 4701
+  c: 6
+  limit_memory: 32768
+  new_memory: true
+  port_info:
+     - default_gw      : 10.255.3.254
+       ip              : 10.255.3.100
+       vlan: 300
+     - default_gw      : 10.255.4.254
+       ip              : 10.255.4.100
+       vlan: 400
+     - default_gw      : 10.255.5.254
+       ip              : 10.255.5.100
+       vlan: 301
+     - default_gw      : 10.255.6.254
+       ip              : 10.255.6.100
+       vlan: 401
+     - default_gw      : 10.255.7.254
+       ip              : 10.255.7.100
+       vlan: 302
+     - default_gw      : 10.255.8.254
+       ip              : 10.255.8.100
+       vlan: 402
+     - default_gw      : 10.255.9.254
+       ip              : 10.255.9.100
+       vlan: 303
+     - default_gw      : 10.255.10.254
+       ip              : 10.255.10.100
+       vlan: 403
+  platform:
+      master_thread_id: 26
+      latency_thread_id: 51
+      dual_if:
+        - socket: 1
+          threads: [27,28,29,30,31,32]
+          #threads: [41,42,43,44,45,46,47,48,49,50,51]
+        - socket: 1
+          threads: [33,34,35,36,37,38]
+          #threads: [41,42,43,44,45,46,47,48,49,50,51]
+        - socket: 1
+          threads: [39,40,41,42,43,44]
+          #threads: [41,42,43,44,45,46,47,48,49,50,51]
+        - socket: 1
+          threads: [45,46,47,48,49,50]
+          #threads: [41,42,43,44,45,46,47,48,49,50,51]
+  memory:
+      dp_flows: 40000000
+      mbuf_9k: 560000
+```
 * Create systemd unit for trex:   
 ```
 [Unit]
-Description=TREX Service
+Description=TREX Service Instance 1
 
 [Service]
 StandardOutput=journal
 StandardError=journal
 WorkingDirectory=/opt/trex
-ExecStart=/opt/trex/t-rex-64 -i --astf --tso-disable --lro-disable --iom 0
+ExecStart=/opt/trex/t-rex-64 -i --astf --tso-disable --lro-disable --iom 0 --cfg /etc/trex_cfg.yaml
 
 [Install]
 WantedBy=multi-user.target
 ```
 * ```systemctl daemon-reload && systemctl start trex```
-* Start test. Example for **udp_max_pps.py** profile with 1400B packet size:   
+
+## How to use trex_run.py <a name="trex_run"></a>
+Clone current repository:
 ```
-cd ~/trex-perf
-./trex_run.py -m 100 -d 60 -f trex_profiles/udp_max_pps.py -t size=1400
+git clone https://github.com/OlegKashtanov/ngfw-trex-perf.git
+cd ngfw-trex-perf
+pip3 install -r requirements.txt
+```
+
+**I. Run test using Trex systemd service**   
+* `sudo systemctl start trex`
+* Start test. Example for **udp_imix.py** profile with 1400B frame size:   
+```
+./trex_run.py -m 100 -d 60 -f trex_profiles/udp_imix.py -t ramp_up=30 frame_size_b=1400 --send_stats=false
 ```   
   -m: multiplier for traffic profile   
-  -d: test duration in seconds   
+  -d: test duration in seconds (steady state period)   
+  -t: profile's tunables 
 
-* Run test with attacks (will be sent in a sequence):
-  `./trex_run.py -m 100 -d 60 -a <pcaps_with_attacks_repo> -f trex_profiles/http_max_tp.py`
+* Run test with attacks (will be sent in sequence):
+```
+./trex_run.py --attack-interval 1 --send_stats False -m 1 -a <pcaps_with_attacks_repo> -f trex_profiles/udp_imix.py --attacks-once
+```
 * Available options for **trex_run.py**:
 ```
-./trex_run.py -h
-usage: trex_run.py [-h] [-s SERVER] [-m MULT] [-f FILE] [-d DURATION]
-                   [-a ATTACKS_PATH] [--drp DRP]
-                   [-t [TUNABLES [TUNABLES ...]]] [--send_stats SEND_STATS]
-                   [--influx_addr INFLUX_ADDR] [--influx_port INFLUX_PORT]
-                   [--influx_admin INFLUX_ADMIN]
-                   [--influx_passwd INFLUX_PASSWD] [--influx_db INFLUX_DB]
-                   [--influx_interval INFLUX_INTERVAL] [--test_id TEST_ID]
-                   [--grafana_url GRAFANA_URL] [--dashboard_uid DASHBOARD_UID]
-                   [--dashboard_name DASHBOARD_NAME]
+usage: trex_run.py [-h] [-s SERVER] [--sync_port SYNC_PORT] [--async_port ASYNC_PORT] [--trex_instance TREX_INSTANCE] [-m MULT] [-f FILE] [-d DURATION] [-a ATTACKS_PATH] [--drp DRP] [-t [TUNABLES ...]] [--send_stats SEND_STATS] [--influx_addr INFLUX_ADDR]
+                   [--influx_port INFLUX_PORT] [--influx_admin INFLUX_ADMIN] [--influx_passwd INFLUX_PASSWD] [--influx_db INFLUX_DB] [--influx_interval INFLUX_INTERVAL] [--grafana_url GRAFANA_URL]
+                   [--latency_pps LATENCY_PPS] [--json] [--bw] [--ngfw-hostname NGFW_HOST] [--cc-dur CC_DURATION] [--attack-interval ATTACK_INTERVAL] [--capture] [--attacks-once] [--arp-retries ARP_RETRIES]
 
 TRex ASTF mode
 
 optional arguments:
   -h, --help            show this help message and exit
   -s SERVER             remote TRex address (default: 127.0.0.1)
-  -m MULT               multiplier of main traffic (default: 1)
+  --sync_port SYNC_PORT
+                        the RPC port (default: 4501)
+  --async_port ASYNC_PORT
+                        the ASYNC port (subscriber port) (default: 4500)
+  --trex_instance TREX_INSTANCE
+                        Trex instance (default: None)
+  -m MULT               multiplier of main traffic (default: 1.0)
   -f FILE               profile path for sending main traffic (default: None)
   -d DURATION           duration of traffic, sec (default: 10)
-  -a ATTACKS_PATH       attack pcaps absolute path directory for sending
-                        attacks (default: None)
-  --drp DRP             Allowed main traffic drop rate, % (default: 1)
-  -t [TUNABLES [TUNABLES ...]]
-                        tunables for main profile: key1=value1 key2=value2...
-                        (default: None)
+  -a ATTACKS_PATH       attack pcaps absolute path directory for sending attacks (default: None)
+  --drp DRP             Allowed main traffic drops (connections), % (default: 0.1)
+  -t [TUNABLES ...]     tunables for main profile: key1=value1 key2=value2... (default: {})
   --send_stats SEND_STATS
-                        Send stats to InfluxDB (default: True)
+                        Send stats to InfluxDB (default: False)
   --influx_addr INFLUX_ADDR
                         InfluxDB address (default: 127.0.0.1)
   --influx_port INFLUX_PORT
@@ -100,21 +235,20 @@ optional arguments:
   --influx_db INFLUX_DB
                         Influx DB name (default: trex)
   --influx_interval INFLUX_INTERVAL
-                        Influx send interval, sec (default: 1)
-  --test_id TEST_ID     Test ID (default: None)
+                        Influx send interval, sec (default: 10)
   --grafana_url GRAFANA_URL
                         Grafana URL (default: http://127.0.0.1:3000)
-  --dashboard_uid DASHBOARD_UID
-                        Dashboard UID (default: cisco-trex)
-  --dashboard_name DASHBOARD_NAME
-                        Dashboard name (default: cisco-trex)
+  --latency_pps LATENCY_PPS
+                        ICMP packets rate (default: 0)
+  --json                Output in json format (default: False)
+  --bw                  Get resolved ports bandwidth (default: False)
+  --ngfw-hostname NGFW_HOST
+                        NGFW hostname for grafana dashboards (default: None)
+  --cc-dur CC_DURATION  Concurrent connections steady state duration, sec (default: 0)
+  --attack-interval ATTACK_INTERVAL
+                        Time interval between attacks sending, sec (default: 1.0)
+  --capture             Capture first 1000 pckts since starting main profile (default: False)
+  --attacks-once        Send all attacks only once (default: False)
+  --arp-retries ARP_RETRIES
+                        ARP retries with 1 second interval (default: 10)
 ```
-
-**II. Run test in batch mode**   
-* Example for **udp_max_pps.py** profile with 1400B frame size:   
-  ```
-  cd /opt/trex && sudo ./t-rex-64 --astf -f ~/trex-perf/trex_profiles/udp_max_pps.py -m 10000 -d 300 --tso-disable  --lro-disable -t size=1400
-  ```
-  -m: multiplier for traffic profile   
-  -d: test duration in seconds   
-
